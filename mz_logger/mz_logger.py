@@ -2,11 +2,11 @@ import os
 import time
 
 class mz_logger:
-    def __init__(self, out_path, out_log = 'out_log.log'):
+    def __init__(self, out_path, out_log = 'out_log.log', remove=False):
         self.out_log = out_path + out_log
 
         os.makedirs(out_path, exist_ok=True)
-        if os.path.exists(self.out_log):
+        if os.path.exists(self.out_log) and remove:
             os.remove(self.out_log)
         
     def printlog(self, log):
